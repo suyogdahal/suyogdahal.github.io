@@ -66,6 +66,8 @@ params:
       url: "https://www.linkedin.com/in/suyog-dahal/"
     - name: x
       url: "https://x.com/suyogdahal17"
+    - name: email
+      url: "mailto:suyogdahal46@gmail.com"
 
 
   analytics:
