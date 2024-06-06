@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Suyog&#39;s personal blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Suyog&#39;s personal blog</description>
+    <generator>Hugo -- 0.126.3</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 06 Jun 2024 11:54:59 +0545</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started ... Again</title>
+      <link>http://localhost:1313/posts/getting-started/</link>
+      <pubDate>Thu, 06 Jun 2024 11:54:59 +0545</pubDate>
+      <guid>http://localhost:1313/posts/getting-started/</guid>
+      <description>Hello to Everyone Reading This, It&amp;rsquo;s been quite a while since I last penned anything down. The last memory I have of writing was during my GRE&amp;rsquo;s Analytical Writing Assessment (AWA) — ah, the good ol&amp;rsquo; days! But let’s set the jokes aside for a moment. I used to write articles and courses for The Click Reader for over a year. However, after moving on from Click Reader, my writing habits took an unexpected hiatus.</description>
+    </item>
+  </channel>
+</rss>
