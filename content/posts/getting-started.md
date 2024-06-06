@@ -4,7 +4,7 @@ date : 2024-06-06T11:54:59+05:45
 draft : false
 tags : ["personal"]
 cover:
-    image: "/personal-blog/img/getting-started.png" 
+    image: "/img/getting-started.png" 
     alt: "getting-started"
 ---
 
