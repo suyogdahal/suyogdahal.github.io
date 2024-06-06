@@ -43,11 +43,10 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/personal-blog/static/img/void.jpg"
-    favicon16x16: "/personal-blog/static/img/void.jpg"
-    favicon32x32: "/personal-blog/static/img/void.jpg"
-    apple_touch_icon: "/personal-blog/static/img/void.jpg"
-    safari_pinned_tab: "/personal-blog/static/img/void.jpg"
+    favicon: "/personal-blog/favicon_io/favicon-32x32.png"
+    favicon16x16: "/personal-blog/favicon_io/favicon-16x16.png"
+    favicon32x32: "/personal-blog/favicon_io/favicon-32x32.png"
+    apple_touch_icon: "/personal-blog/favicon_io/apple_touch_icon.png"
 
   label:
     text: "Home"
