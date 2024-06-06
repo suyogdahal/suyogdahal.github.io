@@ -1,7 +1,7 @@
 ---
 title : 'About'
 date : 2024-06-06T11:54:59+05:45
-draft : true
+draft : false
 tags : ["personal"]
 ---
 
