@@ -20,25 +20,27 @@ params:
   author: "Suyog"
   # author: ["Me", "You"] # multiple authors
   DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
+  defaultTheme: light # dark, light
   disableThemeToggle: false
   MetaDataFormat : "yaml"
+  
 
   ShowReadingTime: true
   # ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: false
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: true
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
+  showtoc: true
+  tocopen: true
+  giscus: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -57,7 +59,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: "Welcome to my blog — a space where I share my thoughts, experiences, and stories.\n\nJoin me as I rediscover the joy of writing in everyday life."
+    Content: "Welcome to my digital sanctuary of randomness and ramblings — where I spill my thoughts, experiences, and stories like every other over-caffeinated engineer! I plan to talk about Machine Learning, Python, and Cloud technologies, but who knows where else my curiosity might drag me next?"
 
   socialIcons:
     - name: github

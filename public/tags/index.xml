@@ -4,10 +4,24 @@
     <title>Tags on Suyog&#39;s personal blog</title>
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Suyog&#39;s personal blog</description>
-    <generator>Hugo -- 0.126.3</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Jun 2024 11:54:59 +0545</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2024 12:48:50 +0545</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Llm</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt-Engineering</title>
+      <link>http://localhost:1313/tags/prompt-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/prompt-engineering/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Personal</title>
       <link>http://localhost:1313/tags/personal/</link>

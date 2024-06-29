@@ -4,10 +4,17 @@
     <title>Suyog&#39;s personal blog</title>
     <link>http://localhost:1313/</link>
     <description>Recent content on Suyog&#39;s personal blog</description>
-    <generator>Hugo -- 0.126.3</generator>
+    <generator>Hugo -- 0.127.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Jun 2024 11:54:59 +0545</lastBuildDate>
+    <lastBuildDate>Tue, 11 Jun 2024 12:48:50 +0545</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prompt Tuning with DSPy</title>
+      <link>http://localhost:1313/posts/dspy-prompt-tuning/</link>
+      <pubDate>Tue, 11 Jun 2024 12:48:50 +0545</pubDate>
+      <guid>http://localhost:1313/posts/dspy-prompt-tuning/</guid>
+      <description>What is it and why is it needed? Last week, I spent some time writing prompts for classifying documents into a fixed set of classes based on their OCR text. I spent some time tweaking and experimenting with the prompt for the model to behave exactly how I wanted it to behave. But prompt tuning, for those who have tried it, knows how painfully daunting it is to make these models behave exactly how you&amp;rsquo;d like them to behave&amp;hellip; that also consistently.</description>
+    </item>
     <item>
       <title>About</title>
       <link>http://localhost:1313/about/</link>

@@ -5,7 +5,7 @@ draft : false
 tags : ["personal"]
 ---
 
-<img src="/img/void.jpg" alt="my state rn" align="right" style="width:50%; margin-left:5%;">
+<img src="/img/its_me.jpeg" alt="my state rn" align="right" style="width:30%; margin-left:5%;">
 
 Hi there! First of all, welcome to my blog. I'm just an ordinary developer from Kathmandu, Nepal. My experience lies in developing AI-based software solutions. Currently, I'm working as an ML Engineer at [Docsumo](https://docsumo.com), a document-AI company. My day-to-day job involves exploring various ML models for extracting information from documents. In addition to research, I also develop, deploy, and monitor these systems in production.
 
