@@ -2,7 +2,7 @@
 title : 'Prompt Tuning with DSPy'
 date : 2024-06-11T12:48:50+05:45
 draft : false
-tags : ["llm", "prompt-engineering"]
+tags : ["llm", "prompt-engineering", "python"]
 ---
 
 ## What is it and why is it needed?
