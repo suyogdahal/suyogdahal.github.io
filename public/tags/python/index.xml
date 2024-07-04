@@ -9,12 +9,12 @@
     <lastBuildDate>Mon, 01 Jul 2024 11:07:28 +0545</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How a Python Decorator Crashed My Flask App: Lessons Learned</title>
+      <title>How a Decorator Crashed My Flask App: Lessons Learned</title>
       <link>http://localhost:1313/posts/how-decorator-broke-my-app/</link>
       <pubDate>Mon, 01 Jul 2024 11:07:28 +0545</pubDate>
       <guid>http://localhost:1313/posts/how-decorator-broke-my-app/</guid>
-      <description>Python decorators are wonderful. They let you modify or extend the behavior of functions or methods without permanently modifying their source code. I&amp;rsquo;ve used them in several places in my code to add features to my functions. But recently, I came across a weird, or rather interesting, bug that I felt was worth sharing.
-The Issue So I had a Flask API that was responsible for ML inference. Here is what the rough structure of the project looked like:</description>
+      <description>Decorators in python are wonderful. They let you modify or extend the behavior of functions or methods without permanently modifying their source code. I&amp;rsquo;ve used them in several places in my code to add features to my functions. But recently, I came across a weird, or rather interesting, bug that I felt was worth sharing.
+The Issue So we had a Flask API that was responsible for ML inference. Here is what the rough structure of the project looked like:</description>
     </item>
     <item>
       <title>Prompt Tuning with DSPy</title>
