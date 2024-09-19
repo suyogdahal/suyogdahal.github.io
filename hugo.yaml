@@ -22,8 +22,7 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
-  MetaDataFormat : "yaml"
-  
+  MetaDataFormat: "yaml"
 
   ShowReadingTime: true
   # ShowShareButtons: true
@@ -55,7 +54,6 @@ params:
     icon: /apple-touch-icon.png
     iconHeight: 35
 
-
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
@@ -71,7 +69,6 @@ params:
     - name: email
       url: "mailto:suyogdahal46@gmail.com"
 
-
   analytics:
     google:
       SiteVerificationTag: "GTM-N8FH88H3"
@@ -84,7 +81,6 @@ params:
     hidden: false # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: false # hide on single page
-
 
   # for search
   # https://fusejs.io/api/options.html
@@ -111,6 +107,10 @@ menu:
       name: tags
       url: /tags/
       weight: 20
+    - identifier: dlog
+      name: dlog
+      url: https://suyogdahal.notion.site/Dlog-b5cd2a0511e24737b735c469831eff49?pvs=25#1063883e6cbd80eab642e1e48e5e92b5
+      weight: 30
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
