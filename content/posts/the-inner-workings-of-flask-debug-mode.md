@@ -1,8 +1,8 @@
-+++
-title = 'The Inner Workings of Flask Debug Mode'
-date = 2024-11-08T22:08:03-05:00
-draft = true
-+++
+---
+title: 'The Inner Workings of Flask Debug Mode'
+date: 2024-11-08T22:08:03-05:00
+draft: true
+---
 
 I didn’t expect that in an attempt to save a few seconds of manual labor, I would end up diving deep into the inner workings of Flask—and its engine, Werkzeug. This article is an attempt to document my findings and learnings along the way.
 
