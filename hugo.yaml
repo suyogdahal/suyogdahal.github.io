@@ -1,6 +1,7 @@
 baseURL: "https://suyogdahal.github.io"
 title: Suyog's personal blog
-paginate: 10
+pagination:
+  pagerSize: 10
 theme: PaperMod
 
 enableRobotsTXT: true
