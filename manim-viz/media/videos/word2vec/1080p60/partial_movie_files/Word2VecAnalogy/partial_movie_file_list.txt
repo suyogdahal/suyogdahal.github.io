@@ -1,0 +1,11 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2257293077_884732653_3610766542.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_2341082278_1015629847.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_2346563522_1378048963.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_2341082278_3162983813.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_1967201193_7722229.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_2341082278_4256066086.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_87710453_2147330843.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_2341082278_713371697.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_3544744549_2236259154.mp4'
+file 'file:/Users/suyog/personal/manim-viz/media/videos/word2vec/1080p60/partial_movie_files/Word2VecAnalogy/2135761390_4249682336_1087425496.mp4'
