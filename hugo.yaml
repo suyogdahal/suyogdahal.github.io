@@ -77,7 +77,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: "Welcome to my digital sanctuary of randomness and ramblings — where I spill my thoughts, experiences, and stories like every other over-caffeinated engineer! I plan to talk about Machine Learning, Python, and Cloud technologies, but who knows where else my curiosity might drag me next?"
+    Content: "Just another engineer yapping about ML, Python, and whatever shiny thing catches my attention. Mostly half-baked thoughts, occasional deep dives, and the rare moment of clarity. Grab some coffee ☕ and stick around!"
 
   socialIcons:
     - name: github
