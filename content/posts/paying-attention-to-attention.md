@@ -18,7 +18,7 @@ After finishing the series, I felt the need to write this down, partly so I don�
 
 If you know Hindi, I highly recommend watching the original video; the effort and clarity are rare on YouTube. What follows from here is simply my own reinterpretation of that intuition, reshaped in a way that makes sense to me and hopefully to you too.
 
-<small style="color: #888;">_This post assumes you already have some basic understanding of NLP and ML; otherwise, the explanations would get way too long for our goldfish-level attention spans (mine included — I'm kinda lazy, to write too much lol)._</small>
+<small style="color: #888;">_This post assumes you already have some basic understanding of NLP and ML; otherwise, the explanations would get way too long for our goldfish-level attention spans (mine included, I'm kinda lazy, to write too much lol)._</small>
 
 ## Embeddings: The Zeros and Ones of NLP
 
@@ -38,9 +38,9 @@ These methods (Bag-of-Words, TF-IDF) were okay for basic tasks, but they treated
 
 Then came the first major leap: learn the embeddings instead of designing them.
 
-This gave us Word2Vec, GloVe, and friends — models that learned to place words in a vector space where similar words end up close together. At this point, embeddings stopped being plain numbers and started becoming… well, meaningful.
+This gave us Word2Vec, GloVe, and friends, models that learned to place words in a vector space where similar words end up close together. At this point, embeddings stopped being plain numbers and started becoming… well, meaningful.
 
-That’s how we got the now-iconic example:
+That’s how we got the now iconic example:
 
 > vector("queen") – vector("woman") + vector("man") ≈ vector("king")
 
@@ -169,7 +169,7 @@ Or simply:
 w_i = \text{softmax}\left( q_{\text{bank}} \cdot k_i \right)
 \]
 
-Now all the weights \(w_i\) are positive and sum to 1 — exactly what we need for a weighted average.
+Now all the weights \(w_i\) are positive and sum to 1, exactly what we need for a weighted average.
 
 ### Step 5: Compute the Weighted Sum
 
@@ -185,7 +185,7 @@ Or in compact notation:
 \mathbf{v}_{\text{bank}}^{\text{context}} = \sum_{i} w_i \cdot v_i = \sum_{i} \text{softmax}\left( q_{\text{bank}} \cdot k_i \right) \cdot v_i
 \]
 
-And there you have it — the context-aware embedding we were looking for! The word "river" will naturally get a higher weight when determining what "bank" means, simply because their embeddings are more aligned in the vector space.
+And there you have it, the context-aware embedding we were looking for! The word "river" will naturally get a higher weight when determining what "bank" means, simply because their embeddings are more aligned in the vector space.
 
 ## The Twist: Learnable Weight Matrices
 
@@ -204,7 +204,7 @@ These matrices are learned during training on massive text corpora. Through back
 - **\(W_K\)**: What information do I contain that others might need? (my "label")
 - **\(W_V\)**: What information should I contribute to the final output?
 
-This is the magic that lets transformers understand language so well — they learn these relationships from billions of words of text, capturing nuances that we could never hand-code.
+This is the magic that lets transformers understand language so well, they learn these relationships from billions of words of text, capturing nuances that we could never hand-code.
 
 ## Putting It All Together
 
@@ -217,7 +217,7 @@ Here's a visual summary of everything we've covered:
     </video>
 </div>
 
-That's it. Dot products to measure similarity, softmax to normalize, weighted sums to blend — and learnable matrices to make it all trainable. This single mechanism, stacked and repeated, powers GPT, BERT, and every LLM you've heard of.
+That's it. Dot products to measure similarity, softmax to normalize, weighted sums to blend and learnable matrices to make it all trainable. This single mechanism, stacked and repeated, powers GPT, BERT, and every LLM you've heard of.
 
 Pretty wild what a weighted sum can do!
 
