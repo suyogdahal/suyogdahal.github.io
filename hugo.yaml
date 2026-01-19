@@ -9,6 +9,25 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - "\\["
+              - "\\]"
+            - - "$$"
+              - "$$"
+          inline:
+            - - "\\("
+              - "\\)"
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
 minify:
   disableXML: true
   minifyOutput: true
@@ -115,14 +134,3 @@ menu:
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
-markup:
-  goldmark:
-    renderer:
-      unsafe: true
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai

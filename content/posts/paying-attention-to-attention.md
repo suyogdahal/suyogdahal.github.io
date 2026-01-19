@@ -1,10 +1,12 @@
 ---
-title: "Paying attention to ATTENTION"
-date : 2026-01-19T12:48:50+05:45
+title: "Paying attention to Attention"
+date : 2026-01-18T12:48:50+05:45
 draft : false
 tags : ["llm"]
 math : true
 ---
+
+## Context
 
 I recently came across a three-part YouTube series that explains the Attention mechanism in a refreshingly clear way. The creator breaks things down so well that it made me pause, rewind, and actually understand what’s happening under the hood.
 
@@ -16,7 +18,7 @@ After finishing the series, I felt the need to write this down, partly so I don�
 
 If you know Hindi, I highly recommend watching the original video; the effort and clarity are rare on YouTube. What follows from here is simply my own reinterpretation of that intuition, reshaped in a way that makes sense to me and hopefully to you too.
 
-_This post assumes you already have some basic understanding of NLP and ML; otherwise, the explanations would get way too long for our goldfish-level attention spans (mine included — I’m kinda lazy, to write too much lol)._
+<small style="color: #888;">_This post assumes you already have some basic understanding of NLP and ML; otherwise, the explanations would get way too long for our goldfish-level attention spans (mine included — I'm kinda lazy, to write too much lol)._</small>
 
 ## Embeddings: The Zeros and Ones of NLP
 
