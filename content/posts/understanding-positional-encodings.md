@@ -43,4 +43,34 @@ The token IDs by themselves are just integers, i.e., they don't carry any semant
 </figure>
 
 
+## Positional Encoding
 
+### The need
+
+Now that we understand how an input sentence gets converted into dense vectors, let's understand why we need positional encoding in the first place.
+
+So far, we've converted a list of words into a list of dense vectors. But here's the problem: the embedding for a word is always the same regardless of where it appears in the sentence. The word "love" will have the same vector whether it's the first word or the last.
+
+Consider: "I love transformers" vs "Transformers love I" (yeah you grammar nazis, the second one isn't a grammatically valid sentence, but please bear with me to understand the concept). These two sentences have the exact same words, yet their meanings are completely different. The position of words matters! What if we could inject some positional information into each word's embedding so that the same word at different positions gets a slightly different representation?
+
+### The simplest way
+
+Let's think from first principles. What's the simplest way to add position information to a vector? 
+
+What if we just add the word's index to its embedding? So the first word gets +0 added to all dimensions, the second word gets +1, the third gets +2, and so on. This would shift each word's embedding based on its position in the sentence.
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/simple_position.gif" alt="simple positional encoding">
+</figure>
+
+Simple, right? But there are some major issues with this approach:
+
+1. **Unbounded values**: The number of input words can grow quite large (512, 1024, even 4096 tokens). If we keep adding the word's index, the position values can become massive. Imagine adding 4096 to every dimension of a word embedding, the positional information would completely overpower the actual semantic meaning of the word.
+
+2. **Inconsistent scale**: The first word gets +0, but the 1000th word gets +1000. This huge variation in magnitude makes it hard for the model to learn meaningful patterns.
+
+So ok, what if we normalize the index before adding it to the word embedding? That should get rid of these issues, right?
+
+For example, we could divide the position by the total sequence length: position 0 becomes 0, position 1 becomes 1/N, position 2 becomes 2/N, and so on. This keeps all values between 0 and 1.
+
+But wait, this creates a new problem. The same word at the same absolute position would get different positional values depending on the sentence length! In a 10-word sentence, position 5 gets 0.5. In a 100-word sentence, position 5 gets 0.05. The model would have a hard time learning that these represent the "same" position.
