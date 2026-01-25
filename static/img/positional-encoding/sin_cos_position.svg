@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200">
+  <style>
+    text { font-family: 'Courier New', monospace; }
+    .word { font-size: 14px; font-weight: bold; fill: #333; }
+    .label { font-size: 12px; fill: #666; }
+    .math { font-size: 12px; fill: #2563eb; font-style: italic; }
+    .arrow { stroke: #666; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .box { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 6; }
+    .plus { font-size: 20px; fill: #333; font-weight: bold; }
+    .equals { font-size: 20px; fill: #333; font-weight: bold; }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Words -->
+  <rect class="box" x="20" y="30" width="120" height="140"/>
+  <text class="label" x="80" y="20" text-anchor="middle">Words</text>
+  <text class="word" x="80" y="65" text-anchor="middle">"I"</text>
+  <text class="word" x="80" y="100" text-anchor="middle">"love"</text>
+  <text class="word" x="80" y="135" text-anchor="middle">"transformers"</text>
+  
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M 145 100 L 195 100"/>
+  
+  <!-- Embeddings -->
+  <rect class="box" x="210" y="30" width="170" height="140"/>
+  <text class="label" x="295" y="20" text-anchor="middle">Embeddings</text>
+  <text class="math" x="295" y="65" text-anchor="middle">e₀ = [0.2, -0.5, ...]</text>
+  <text class="math" x="295" y="100" text-anchor="middle">e₁ = [0.8, 0.3, ...]</text>
+  <text class="math" x="295" y="135" text-anchor="middle">e₂ = [-0.1, 0.7, ...]</text>
+  
+  <!-- Plus sign -->
+  <text class="plus" x="420" y="107" text-anchor="middle">+</text>
+  
+  <!-- Positional (sin/cos alternating) -->
+  <rect class="box" x="460" y="30" width="210" height="140"/>
+  <text class="label" x="565" y="20" text-anchor="middle">Position (sin/cos)</text>
+  <text class="math" x="565" y="65" text-anchor="middle">[sin(0), cos(0), sin(0), ...]</text>
+  <text class="math" x="565" y="100" text-anchor="middle">[sin(1), cos(1), sin(1), ...]</text>
+  <text class="math" x="565" y="135" text-anchor="middle">[sin(2), cos(2), sin(2), ...]</text>
+  
+  <!-- Equals sign -->
+  <text class="equals" x="710" y="107" text-anchor="middle">=</text>
+  
+  <!-- Result -->
+  <rect class="box" x="750" y="30" width="230" height="140" style="fill: #ecfdf5; stroke: #10b981;"/>
+  <text class="label" x="865" y="20" text-anchor="middle" style="fill: #059669;">Position-aware</text>
+  <text class="math" x="865" y="65" text-anchor="middle">[0.2+0, -0.5+1, 0.1+0, ...]</text>
+  <text class="math" x="865" y="100" text-anchor="middle">[0.8+.84, 0.3+.54, ...]</text>
+  <text class="math" x="865" y="135" text-anchor="middle">[-0.1+.91, 0.7-.42, ...]</text>
+</svg>

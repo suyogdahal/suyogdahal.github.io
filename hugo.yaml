@@ -23,6 +23,8 @@ markup:
           inline:
             - - "\\("
               - "\\)"
+            - - "$"
+              - "$"
     renderer:
       unsafe: true
   highlight:

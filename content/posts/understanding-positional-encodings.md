@@ -2,6 +2,7 @@
 title: 'Understanding Positional Encodings'
 date: 2026-01-24T17:19:38-05:00
 draft: true
+math: true
 ---
 
 If the following image doesn't make sense to you, there's a good chance you haven't fully grasped positional encodings in transformer architecture. Please stick around as I'll try to explain them in an intuitive way.
@@ -93,8 +94,43 @@ Enter sine and cosine, the perfect candidates! They're bounded between -1 and 1,
     <img src="/img/positional-encoding/sine-and-cosine.png" alt="sine and cosine functions">
 </figure>
 
+So let's just add $\sin(\text{pos})$ to each word embedding: position 0 gets $\sin(0)$, position 1 gets $\sin(1)$, position 2 gets $\sin(2)$, and so on.
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/sin_position.svg" alt="adding sin(pos) to embeddings">
+</figure>
+
+But there's one big issue: each position needs a **unique** encoding. If two positions have the exact same encoding, the model will get confused—and ambiguity is something we want to avoid in deep learning. Since sine is periodic, $\sin(n) = \sin(n + 2\pi)$, meaning different positions could end up with identical values.
+
+One way to counter this is to use two different trigonometric functions instead of one. What if we do:
+
+$$y = y_{\text{emb}} + [\sin(\text{pos}), \cos(\text{pos}), \sin(\text{pos}), \cos(\text{pos}), \ldots]$$
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/sin_cos_position.svg" alt="adding alternating sin/cos to embeddings">
+</figure>
+
+This helps in short sequences. But if the sequence is long enough, the values will eventually repeat, just like how a clock resets every 12 hours. To truly minmize chances of collision, we can make each dimension of the position encoding vector to use a different frequency for sine and cosine. That way, the pattern of values across all dimensions never (rarely) repeats within any `reasonable` sequence length.
+
+So, instead of just $[\sin(\text{pos}), \cos(\text{pos}), \sin(\text{pos}), ...]$, we use:
+
+$$[\sin(\omega_1 \cdot \text{pos}), \cos(\omega_1 \cdot \text{pos}), \sin(\omega_2 \cdot \text{pos}), \cos(\omega_2 \cdot \text{pos}), \ldots]$$
+
+where each $\omega_k$ is a different frequency for each dimension. This way, every position gets a unique, high-dimensional fingerprint that's extremely unlikely to repeat or collide with any other position.
+
+And this is how we arrive at the famous positional encoding formula from the original Transformer paper:
+
+$$PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
+
+$$PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
+
+Where:
+- $pos$ is the position of the word in the sequence
+- $i$ is the dimension index
+- $d_{model}$ is the embedding dimension (e.g., 512)
 
 
+> In simple terms: this formula does nothing more than alternate sine and cosine waves with different frequencies across the dimensions of the positional vector, scaled by the token’s position.
 
 
 
