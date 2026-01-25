@@ -69,8 +69,33 @@ Simple, right? But there are some major issues with this approach:
 
 2. **Inconsistent scale**: The first word gets +0, but the 1000th word gets +1000. This huge variation in magnitude makes it hard for the model to learn meaningful patterns.
 
-So ok, what if we normalize the index before adding it to the word embedding? That should get rid of these issues, right?
+So ok, then what if we normalize the index before adding it to the word embedding? That should get rid of the above issues right?
 
-For example, we could divide the position by the total sequence length: position 0 becomes 0, position 1 becomes 1/N, position 2 becomes 2/N, and so on. This keeps all values between 0 and 1.
+For example, we could divide the position by the total sequence length (`N`): position 0 becomes 0, position 1 becomes `1/N`, position 2 becomes `2/N`, and so on. This keeps all values between 0 and 1, so yeah, this kinda solves the above two issues.
 
-But wait, this creates a new problem. The same word at the same absolute position would get different positional values depending on the sentence length! In a 10-word sentence, position 5 gets 0.5. In a 100-word sentence, position 5 gets 0.05. The model would have a hard time learning that these represent the "same" position.
+But wait, this creates a _new problem_. The same word at the same absolute position would get different positional values depending on the sentence length! In a 10-word sentence, position 5 gets 0.5. In a 100-word sentence, position 5 gets 0.05. The model would have a hard time learning that these represent the "same" position.
+
+Also, both approaches add discrete integers to the embedding. Neural networks generally work better with smooth, continuous representations rather than jumpy discrete values.
+
+Another limitation of raw position indices is that they don’t naturally encode distance. The model knows absolute positions, but understanding how far apart two tokens are requires learning subtraction. Something like a periodic function could help here. Since it repeats its pattern after a fixed interval, shifting from position `p` to `p + k` results in a predictable transformation rather than a completely new value. This makes the relationship between positions easier to capture, allowing the model to learn relative distances through simple transformations instead of explicit arithmetic.
+
+So to summarize this section, we need something that ticks all three boxes:
+- **Bounded**: Values stay in a fixed range regardless of position
+- **Continuous**: Smooth transitions between positions
+- **Periodic**: Can encode relative distances naturally
+
+### Trigonometric Functions
+
+
+Enter sine and cosine, the perfect candidates! They're bounded between -1 and 1, inherently continuous, and periodic.
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/sine-and-cosine.png" alt="sine and cosine functions">
+</figure>
+
+
+
+
+
+
+
