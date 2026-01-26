@@ -1,9 +1,10 @@
 ---
-title: 'Understanding Positional Encodings'
+title: 'Positional Encodings: The Part Everyone Skips'
 date: 2026-01-24T17:19:38-05:00
 draft: false
 tags : ["llm"]
 math: true
+aliases: ["/posts/understanding-positional-encodings/"]
 ---
 
 If the following image doesn't make sense to you, there's a good chance you haven't fully grasped positional encodings in transformer architecture. Please stick around as I’ll try to explain them in a way that actually feels intuitive.
