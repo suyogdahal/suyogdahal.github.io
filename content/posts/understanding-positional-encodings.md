@@ -118,7 +118,16 @@ $$[\sin(\omega_1 \cdot \text{pos}), \cos(\omega_1 \cdot \text{pos}), \sin(\omega
 
 where each $\omega_k$ is a different frequency for each dimension. This way, every position gets a unique, high-dimensional fingerprint that's extremely unlikely to repeat or collide with any other position.
 
-And this is how we arrive at the famous positional encoding formula from the original Transformer paper:
+Take a minute to pause and reflect on the figure below, this should give you a very good intuition as to what exactly positional encoding is doing.
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/PositionalEncodingVectorAdd_ManimCE_v0.19.1.png" alt="final positional encoding vector add animation">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">Each position gets a unique vector by alternating sin/cos with different frequencies</figcaption>
+</figure>
+
+### The Formula
+
+If you are clear about the things we talked earlier, its finally time to introduce the famous/dearding positional encoding formula from the original Transformer paper:
 
 $$PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
 
@@ -130,8 +139,34 @@ Where:
 - $d_{model}$ is the embedding dimension (e.g., 512)
 
 
-> In simple terms: this formula does nothing more than alternate sine and cosine waves with different frequencies across the dimensions of the positional vector, scaled by the token’s position.
+The key to understanding this formula lies in the frequency term
+[
+\frac{1}{10000^{2i/d_{model}}}.
+]
 
+It may look intimidating at first, but it’s really doing just one simple thing: **assigning a different frequency to each pair of dimensions**.
 
+Instead of every dimension using the same sine or cosine wave, each dimension oscillates at a **different frequency that depends on the dimension index**.
 
+At the **starting dimensions**, the frequency of the sine and cosine waves is **very high**, meaning the values change rapidly as the position increases. As we gradually move toward **higher dimensions**, the frequency becomes **lower and lower**, so the waves change much more slowly with position.
 
+This is exactly what you saw in the first figure of the blog:
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img src="/img/positional-encoding/crux.png" alt="crux of positional encoding">
+    <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">The 128-dimensional positional encoding for a sentence</figcaption>
+</figure>
+
+* **Early dimensions (small (i))** → high-frequency waves → rapid oscillations across positions
+* **Later dimensions (large (i))** → low-frequency waves → slow, smooth changes across positions
+
+So the left side of the heatmap looks dense and stripy, while the right side looks smoother and more gradual — all because the frequency decreases as we move across dimensions.
+
+I visualized this heatmap using Manim (vibe-coded with Gemini 3, credit where its due!), and the result is quite satisfying to watch.
+
+<figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <video src="/video/positional-encoding/PositionalEncodingWavesToHeatmap.mp4" controls muted></video>
+    <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">Simulated heatmap of positional encoding</figcaption>
+</figure>
+
+> To conclude, in simple terms: the the positional encoding just alternates sine and cosine waves with different frequencies across the dimensions of the positional vector, scaled by the token’s position.
