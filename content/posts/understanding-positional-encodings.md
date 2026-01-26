@@ -2,6 +2,7 @@
 title: 'Understanding Positional Encodings'
 date: 2026-01-24T17:19:38-05:00
 draft: false
+tags : ["llm"]
 math: true
 ---
 
@@ -164,9 +165,12 @@ So the left side of the heatmap looks dense and stripy, while the right side loo
 
 I visualized this heatmap using Manim (vibe-coded with Gemini 3, credit where its due!), and the result is quite satisfying to watch.
 
+
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <video src="/video/positional-encoding/PositionalEncodingWavesToHeatmap.mp4" controls muted></video>
-    <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">Simulated heatmap of positional encoding</figcaption>
+    <video src="/video/positional-encoding/PositionalEncodingWavesToHeatmap.mp4" controls muted aria-label="Simulated heatmap of positional encoding"></video>
+    <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
+        Simulated heatmap of positional encoding (<a href="https://github.com/suyogdahal/suyogdahal.github.io/blob/main/manim-viz/positional_encoding_to_heat_wave.py" target="_blank" rel="noopener">code</a>)
+    </figcaption>
 </figure>
 
 > To conclude, in simple terms: the the positional encoding just alternates sine and cosine waves with different frequencies across the dimensions of the positional vector, scaled by the token’s position.
