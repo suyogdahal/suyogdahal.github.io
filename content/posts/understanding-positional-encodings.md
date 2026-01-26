@@ -142,9 +142,7 @@ Where:
 
 
 The key to understanding this formula lies in the frequency term
-[
-\frac{1}{10000^{2i/d_{model}}}.
-]
+$$\frac{1}{10000^{2i/d_{model}}}$$
 
 It may look intimidating at first, but it’s really doing just one simple thing: **assigning a different frequency to each pair of dimensions**.
 
