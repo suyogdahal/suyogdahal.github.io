@@ -6,7 +6,7 @@ tags : ["llm"]
 math: true
 ---
 
-If the following image doesn't make sense to you, there's a good chance you haven't fully grasped positional encodings in transformer architecture. Please stick around as I'll try to explain them in an intuitive way.
+If the following image doesn't make sense to you, there's a good chance you haven't fully grasped positional encodings in transformer architecture. Please stick around as I’ll try to explain them in a way that actually feels intuitive.
 
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <img src="/img/positional-encoding/crux.png" alt="crux of positional encoding">
@@ -17,7 +17,7 @@ If the following image doesn't make sense to you, there's a good chance you have
 
 This blog is a part of my quest to properly understand the transformer architecture. Previously, I tried to explain self-attention in my own way [here](/posts/paying-attention-to-attention/). This is just a continuation trying to explain positional encoding. Also, as I mentioned in my previous blog, I've taken heavy inspiration (and learning) from [this video](https://youtu.be/GeoQBNNqIbM?si=T-dhKf41DCLuGX49), and if you know Hindi, I would genuinely suggest you to rather go over his playlist.
 
-## Prelude
+## Some background
 
 To understand what positional encodings are, lets zoom into this section of the transformer architecture
 
