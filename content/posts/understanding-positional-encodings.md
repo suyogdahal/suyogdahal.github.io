@@ -99,7 +99,7 @@ Enter sine and cosine, the perfect candidates! They're bounded between -1 and 1,
 So let's just add $\sin(\text{pos})$ to each word embedding: position 0 gets $\sin(0)$, position 1 gets $\sin(1)$, position 2 gets $\sin(2)$, and so on.
 
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="/img/positional-encoding/sin_position.svg" alt="adding sin(pos) to embeddings">
+    <img src="/img/positional-encoding/sin_position.png" alt="adding sin(pos) to embeddings">
 </figure>
 
 But there's one big issue: each position needs a **unique** encoding. If two positions have the exact same encoding, the model will get confused and ambiguity is something we want to avoid in deep learning. Since sine is periodic, $\sin(n) = \sin(n + 2\pi)$, meaning different positions could end up with identical values.
@@ -109,7 +109,7 @@ One way to counter this is to use two different trigonometric functions instead 
 $$y = y_{\text{emb}} + [\sin(\text{pos}), \cos(\text{pos}), \sin(\text{pos}), \cos(\text{pos}), \ldots]$$
 
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <img src="/img/positional-encoding/sin_cos_position.svg" alt="adding alternating sin/cos to embeddings">
+    <img src="/img/positional-encoding/sin_cos_position.png" alt="adding alternating sin/cos to embeddings">
 </figure>
 
 This helps in short sequences. But if the sequence is long enough, the values will eventually repeat, just like how a clock resets every 12 hours. To truly minmize chances of collision, we can make each dimension of the position encoding vector to use a different frequency for sine and cosine. That way, the pattern of values across all dimensions never (rarely) repeats within any `reasonable` sequence length.
