@@ -167,7 +167,7 @@ I visualized this heatmap using Manim (vibe-coded with Gemini 3, credit where it
 
 
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <video src="/video/positional-encoding/PositionalEncodingWavesToHeatmap.mp4" controls muted aria-label="Simulated heatmap of positional encoding"></video>
+    <video src="/video/positional-encoding/PositionalEncodingWavesToHeatmap.mp4" controls muted width="720" aria-label="Simulated heatmap of positional encoding"></video>
     <figcaption style="text-align: center; font-style: italic; margin-top: 8px;">
         Simulated heatmap of positional encoding (<a href="https://github.com/suyogdahal/suyogdahal.github.io/blob/main/manim-viz/positional_encoding_to_heat_wave.py" target="_blank" rel="noopener">code</a>)
     </figcaption>
