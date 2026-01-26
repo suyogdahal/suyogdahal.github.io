@@ -6,17 +6,16 @@ tags : ["llm"]
 math : true
 ---
 
+
+We instinctively know that "bank" means something completely different in "river bank" versus "money bank", but how do you teach that distinction to a computer? We keep hearing that "Attention is All You Need", but *why*? The answer lies in a deceptively simple mechanism that eventually allowed models to stop looking at words in isolation and start understanding the relationships between them.
+
 ## Context
 
-I recently came across a three-part YouTube series that explains the Attention mechanism in a refreshingly clear way. The creator breaks things down so well that it made me pause, rewind, and actually understand what’s happening under the hood.
+This post is inspired by a YouTube series that finally made the attention mechanism click for me. If you understand Hindi, I highly recommend watching the original video below—it's distinctively clear. What follows is my attempt to solidify my own understanding (and hopefully yours) by rewriting that intuition.
 
 <div style="text-align: center; padding-bottom: 1.5rem;">
     <iframe style="display: block; margin: 0 auto;" width="560" height="315" src="https://www.youtube.com/embed/-tCKPl_8Xb8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-
-After finishing the series, I felt the need to write this down, partly so I don’t forget it, and partly because I think explaining something is the best way to truly learn it.
-
-If you know Hindi, I highly recommend watching the original video; the effort and clarity are rare on YouTube. What follows from here is simply my own reinterpretation of that intuition, reshaped in a way that makes sense to me and hopefully to you too.
 
 <small style="color: #888;">_This post assumes you already have some basic understanding of NLP and ML; otherwise, the explanations would get way too long for our goldfish-level attention spans (mine included, I'm kinda lazy, to write too much lol)._</small>
 

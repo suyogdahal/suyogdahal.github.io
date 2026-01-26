@@ -33,3 +33,209 @@
   });
 </script>
 {{ end }}
+
+{{- /* Image Lightbox CSS and JS */ -}}
+<style>
+  /* Lightbox trigger - make images look clickable */
+  .lightbox-trigger {
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity 0.3s ease;
+  }
+  
+  .lightbox-trigger:hover {
+    opacity: 0.9;
+  }
+  
+  .lightbox-trigger img {
+    display: block;
+  }
+  
+  /* Lightbox modal */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .lightbox-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Only target images in lightbox content */
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+  }
+  
+  .lightbox-caption {
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    line-height: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .lightbox-close:hover {
+    opacity: 0.7;
+  }
+  
+  /* Make all images clickable if not already linked */
+  figure img:not([data-no-lightbox]),
+  img:not([data-no-lightbox]):not(.lightbox-content img) {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  img:not([data-no-lightbox]):not(.lightbox-content img):hover {
+    opacity: 0.9;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 1. Create lightbox modal
+    const lightboxModal = document.createElement('div');
+    lightboxModal.className = 'lightbox-modal';
+    lightboxModal.innerHTML = `
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img class="lightbox-image" src="" alt="">
+        <div class="lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightboxModal);
+    
+    const lightboxImg = lightboxModal.querySelector('.lightbox-image');
+    const lightboxCaption = lightboxModal.querySelector('.lightbox-caption');
+    
+    // 2. Core Lightbox functions
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption || '';
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!lightboxModal.classList.contains('active')) {
+          lightboxImg.src = '';
+        }
+      }, 300);
+    }
+    
+    // 3. Central Event Delegation
+    document.addEventListener('click', function(e) {
+      // Handle Open
+      const trigger = e.target.closest('.lightbox-trigger');
+      if (trigger) {
+        // Double check it's an image trigger or has a direct image child
+        const img = trigger.querySelector('img');
+        // If it's a video trigger (which shouldn't exist anymore, but just in case), ignore it
+        if (trigger.querySelector('video')) return;
+
+        e.preventDefault();
+        const src = trigger.getAttribute('href') || (img ? img.src : '');
+        const caption = trigger.getAttribute('data-caption') || (img ? img.getAttribute('alt') : '');
+        
+        if (src && !src.toLowerCase().endsWith('.mp4')) {
+           openLightbox(src, caption);
+        }
+        return;
+      }
+      
+      // Handle Close
+      if (e.target.closest('.lightbox-close') || e.target === lightboxModal || e.target.closest('.lightbox-content')) {
+        // Allow clicking on image to NOT close, but clicking on background closes? 
+        // Original request just said "x at top right" or "escape key". 
+        // Standard behavior: click outside image closes. Click on image usually does nothing or propagates.
+        // If target is lightbox-content (the wrapper), close. If target is img, maybe don't close?
+        // Let's stick to: click on modal background (lightboxModal) closes. Click on Close button closes.
+        if (e.target === lightboxModal || e.target.closest('.lightbox-close')) {
+            closeLightbox();
+        }
+      }
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+    
+    // 4. Auto-wrap images ONLY
+    function autoWrapMedia() {
+      const mediaElements = document.querySelectorAll('img:not([data-no-lightbox])');
+      
+      mediaElements.forEach(media => {
+        // Skip if inside lightbox, already wrapped, or has a link
+        if (media.closest('.lightbox-modal') || media.closest('a') || media.closest('.lightbox-trigger')) return;
+        
+        const src = media.src;
+        if (!src) return;
+        
+        const caption = media.getAttribute('alt') || '';
+        const link = document.createElement('a');
+        link.href = src;
+        link.className = 'lightbox-trigger';
+        link.setAttribute('data-caption', caption);
+        
+        media.parentNode.insertBefore(link, media);
+        link.appendChild(media);
+      });
+    }
+    
+    // Run auto-wrap
+    autoWrapMedia();
+  });
+</script>

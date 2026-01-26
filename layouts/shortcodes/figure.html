@@ -1,0 +1,36 @@
+<figure{{ if or (.Get "class") (eq (.Get "align") "center") }} class="
+           {{- if eq (.Get "align") "center" }}align-center {{ end }}
+           {{- with .Get "class" }}{{ . }}{{- end }}"
+{{- end -}}>
+    {{- $src := .Get "src" -}}
+    {{- $alt := (or (.Get "alt") (.Get "caption") | markdownify | plainify) -}}
+    {{- $caption := .Get "caption" -}}
+    
+    {{- if .Get "link" -}}
+        <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+    {{- else -}}
+        {{- /* Make image clickable for lightbox */ -}}
+        <a href="{{ $src }}" class="lightbox-trigger" data-caption="{{ $caption }}">
+    {{- end }}
+    <img loading="lazy" src="{{ $src }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
+         {{- if $alt }} alt="{{ $alt }}" {{- end -}}
+         {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+    />
+    </a>
+    {{- if or (or (.Get "title") $caption) (.Get "attr") -}}
+        <figcaption>
+            {{ with (.Get "title") -}}
+                {{ . }}
+            {{- end -}}
+            {{- if or $caption (.Get "attr") -}}<p>
+                {{- $caption | markdownify -}}
+                {{- with .Get "attrlink" }}
+                    <a href="{{ . }}">
+                {{- end -}}
+                {{- .Get "attr" | markdownify -}}
+                {{- if .Get "attrlink" }}</a>{{ end }}</p>
+            {{- end }}
+        </figcaption>
+    {{- end }}
+</figure>
