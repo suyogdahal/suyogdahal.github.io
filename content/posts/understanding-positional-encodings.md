@@ -1,7 +1,7 @@
 ---
 title: 'Understanding Positional Encodings'
 date: 2026-01-24T17:19:38-05:00
-draft: true
+draft: false
 math: true
 ---
 
@@ -28,7 +28,7 @@ Now, lets break down the components you see in the zoomed-in figure.
 
 ### Inputs  
 
-These are the words that are fed into the model. Before being fed, these words go through what's called tokenization—a process that breaks text into smaller units called tokens. Tokenization is a vast field in itself, so I won't be covering it in this blog. For simplicity, let's assume each word in the English language has a unique ID associated with it. When we pass a sentence to a transformer, we are actually passing an array of these token IDs as input.
+These are the words that are fed into the model. Before being fed, these words go through what's called tokenization, a process that breaks text into smaller units called tokens. Tokenization is a vast field in itself, so I won't be covering it in this blog. For simplicity, let's assume each word in the English language has a unique ID associated with it. When we pass a sentence to a transformer, we are actually passing an array of these token IDs as input.
 
 <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <img src="/img/positional-encoding/tokenization.gif" alt="tokenization flow">
@@ -100,7 +100,7 @@ So let's just add $\sin(\text{pos})$ to each word embedding: position 0 gets $\s
     <img src="/img/positional-encoding/sin_position.svg" alt="adding sin(pos) to embeddings">
 </figure>
 
-But there's one big issue: each position needs a **unique** encoding. If two positions have the exact same encoding, the model will get confused—and ambiguity is something we want to avoid in deep learning. Since sine is periodic, $\sin(n) = \sin(n + 2\pi)$, meaning different positions could end up with identical values.
+But there's one big issue: each position needs a **unique** encoding. If two positions have the exact same encoding, the model will get confused and ambiguity is something we want to avoid in deep learning. Since sine is periodic, $\sin(n) = \sin(n + 2\pi)$, meaning different positions could end up with identical values.
 
 One way to counter this is to use two different trigonometric functions instead of one. What if we do:
 
@@ -160,7 +160,7 @@ This is exactly what you saw in the first figure of the blog:
 * **Early dimensions (small (i))** → high-frequency waves → rapid oscillations across positions
 * **Later dimensions (large (i))** → low-frequency waves → slow, smooth changes across positions
 
-So the left side of the heatmap looks dense and stripy, while the right side looks smoother and more gradual — all because the frequency decreases as we move across dimensions.
+So the left side of the heatmap looks dense and stripy, while the right side looks smoother and more gradual, all because the frequency decreases as we move across dimensions.
 
 I visualized this heatmap using Manim (vibe-coded with Gemini 3, credit where its due!), and the result is quite satisfying to watch.
 
