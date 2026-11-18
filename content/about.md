@@ -1,6 +1,7 @@
 ---
 title : 'About'
-date : 2024-06-06T11:54:59+05:45
+lastmod : 2026-11-17T12:00:00-08:00
+showLastUpdated : true
 draft : false
 tags : ["personal"]
 ---
